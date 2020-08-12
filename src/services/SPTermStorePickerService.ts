@@ -264,7 +264,7 @@ export default class SPTermStorePickerService {
    * Retrieve all terms that starts with the searchText
    * @param searchText
    */
-  public searchTermsByName(searchText: string, termSet: string): Promise<IPickerTerm[]> {
+  public searchTermsByName(searchText: string): Promise<IPickerTerm[]> {
     if (Environment.type === EnvironmentType.Local) {
       // If the running environment is local, load the data from the mock
       return SPTermStoreMockHttpClient.searchTermsByName(searchText);

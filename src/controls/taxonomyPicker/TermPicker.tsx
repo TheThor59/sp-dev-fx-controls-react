@@ -9,6 +9,7 @@ import * as strings from 'ControlStrings';
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { ITermSet } from '../../services/ISPTermStorePickerService';
 import { ExtensionContext } from '@microsoft/sp-extension-base';
+import { EmptyGuid } from '../../Common';
 
 export class TermBasePicker extends BasePicker<IPickerTerm, IBasePickerProps<IPickerTerm>>
 {
@@ -112,7 +113,12 @@ export default class TermPicker extends React.Component<ITermPickerProps, ITermP
   private async onFilterChanged(filterText: string, tagList: IPickerTerm[]): Promise<IPickerTerm[]> {
     if (filterText !== "") {
       let termsService = new SPTermStorePickerService(this.props.termPickerHostProps, this.props.context);
-      let terms: IPickerTerm[] = await termsService.searchTermsByTermId(filterText, this.props.termPickerHostProps.anchorId);
+      let terms: IPickerTerm[];
+      if (this.props.termPickerHostProps.anchorId === undefined || this.props.termPickerHostProps.anchorId === EmptyGuid){
+        terms = await termsService.searchTermsByName(filterText);
+      } else {
+        terms = await termsService.searchTermsByTermId(filterText, this.props.termPickerHostProps.anchorId);
+      }
       // Check if the termset can be selected
       if (this.props.isTermSetSelectable) {
         // Retrieve the current termset
