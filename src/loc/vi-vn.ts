@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Menu cho bộ hạn",
   "TaxonomyPickerInLabel": "In",
   "TaxonomyPickerTermSetLabel": "Bộ hạn",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Bộ chọn người",
   "peoplePickerComponentErrorMessage": "Trường bắt buộc",
   "peoplePickerSuggestionsHeaderText": "Người đề nghị",

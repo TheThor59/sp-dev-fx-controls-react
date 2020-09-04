@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Meniu pentru set de termeni",
   "TaxonomyPickerInLabel": "In",
   "TaxonomyPickerTermSetLabel": "Set de termeni",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Selector persoane",
   "peoplePickerComponentErrorMessage": "Câmp obligatoriu",
   "peoplePickerSuggestionsHeaderText": "Persoane sugerate",

@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Меню для набора терминов",
   "TaxonomyPickerInLabel": "в",
   "TaxonomyPickerTermSetLabel": "Набор терминов",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Выбор пользователей",
   "peoplePickerComponentErrorMessage": "Обязательное поле",
   "peoplePickerSuggestionsHeaderText": "Предложенные варианты",

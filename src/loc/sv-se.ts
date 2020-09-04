@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Meny för termuppsättning",
   "TaxonomyPickerInLabel": "I",
   "TaxonomyPickerTermSetLabel": "Termuppsättning",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Personväljare",
   "peoplePickerComponentErrorMessage": "Obligatoriskt fält",
   "peoplePickerSuggestionsHeaderText": "Föreslagna personer",

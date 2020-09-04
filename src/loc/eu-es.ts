@@ -45,6 +45,7 @@ define([], () => {
     "TaxonomyPickerMenuTermSet": "Menu for Term Set",
     "TaxonomyPickerInLabel": "in",
     "TaxonomyPickerTermSetLabel": "Term Set",
+    "TaxonomyPickerAddTerm": "Add",
 
     peoplePickerComponentTooltipMessage: "People Picker",
     peoplePickerComponentErrorMessage: "Required Field",

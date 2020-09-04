@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Terminu kopas izvēlne",
   "TaxonomyPickerInLabel": "Collas",
   "TaxonomyPickerTermSetLabel": "Terminu kopa",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Personu izvēle",
   "peoplePickerComponentErrorMessage": "Obligāts lauks",
   "peoplePickerSuggestionsHeaderText": "Ieteiktie cilvēki",

@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Menu van de termen set",
   "TaxonomyPickerInLabel": "Inch",
   "TaxonomyPickerTermSetLabel": "Termen set",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Personen kiezen",
   "peoplePickerComponentErrorMessage": "Verplicht veld",
   "peoplePickerSuggestionsHeaderText": "Voorgestelde personen",

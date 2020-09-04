@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Meni za skup termina",
   "TaxonomyPickerInLabel": "Inča",
   "TaxonomyPickerTermSetLabel": "Skup termina",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Birač osoba",
   "peoplePickerComponentErrorMessage": "Zahtevano polje",
   "peoplePickerSuggestionsHeaderText": "Predložene osobe",

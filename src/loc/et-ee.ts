@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Termini komplekti menüü",
   "TaxonomyPickerInLabel": "Sisse",
   "TaxonomyPickerTermSetLabel": "Termini komplekt",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Inimeste valija",
   "peoplePickerComponentErrorMessage": "Kohustuslik väli",
   "peoplePickerSuggestionsHeaderText": "Soovitatud inimesed",

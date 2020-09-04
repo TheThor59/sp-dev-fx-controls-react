@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Menu para conjunto de prazos",
   "TaxonomyPickerInLabel": "Em",
   "TaxonomyPickerTermSetLabel": "Conjunto de prazos",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Pessoas Picker",
   "peoplePickerComponentErrorMessage": "Campo necessário",
   "peoplePickerSuggestionsHeaderText": "Pessoas sugeridas",

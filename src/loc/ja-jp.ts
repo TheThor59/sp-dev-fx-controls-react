@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "用語セットのメニュー",
   "TaxonomyPickerInLabel": "インチ",
   "TaxonomyPickerTermSetLabel": "用語セット",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "ユーザー選択ウィンドウ",
   "peoplePickerComponentErrorMessage": "必須フィールド",
   "peoplePickerSuggestionsHeaderText": "提案された人々",

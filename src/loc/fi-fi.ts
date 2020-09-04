@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Termi joukon valikko",
   "TaxonomyPickerInLabel": "Tuumaa",
   "TaxonomyPickerTermSetLabel": "Termi joukko",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Henkilöiden valitsin",
   "peoplePickerComponentErrorMessage": "Pakollinen kenttä",
   "peoplePickerSuggestionsHeaderText": "Ehdotetut henkilöt",

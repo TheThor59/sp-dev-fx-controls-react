@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Меню за набор от изрази",
   "TaxonomyPickerInLabel": "Инча",
   "TaxonomyPickerTermSetLabel": "Набор от изрази",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Избор на хора",
   "peoplePickerComponentErrorMessage": "Задължително поле",
   "peoplePickerSuggestionsHeaderText": "Предложени хора",

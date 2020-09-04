@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Dönem Seti Menüsü",
   "TaxonomyPickerInLabel": "Inç",
   "TaxonomyPickerTermSetLabel": "Dönem Seti",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "İnsanlar Picker",
   "peoplePickerComponentErrorMessage": "Gerekli Alan",
   "peoplePickerSuggestionsHeaderText": "Önerilen Kişiler",

@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Ausdruckssatz Menü",
   "TaxonomyPickerInLabel": "In",
   "TaxonomyPickerTermSetLabel": "Ausdruckssatz",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Benutzerauswahl",
   "peoplePickerComponentErrorMessage": "Pflichtfeld",
   "peoplePickerSuggestionsHeaderText": "Vorgeschlagene Benutzer",

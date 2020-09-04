@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Menu dla zestawu Term",
   "TaxonomyPickerInLabel": "Cala",
   "TaxonomyPickerTermSetLabel": "Zestaw Term",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Selektor osób",
   "peoplePickerComponentErrorMessage": "Pole wymagane",
   "peoplePickerSuggestionsHeaderText": "Sugerowana ludzie",

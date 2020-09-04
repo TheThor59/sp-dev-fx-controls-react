@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Menú per al conjunt de termes",
   "TaxonomyPickerInLabel": "En",
   "TaxonomyPickerTermSetLabel": "Conjunt de termes",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Selector de persones",
   "peoplePickerComponentErrorMessage": "Camp obligatori",
   "peoplePickerSuggestionsHeaderText": "Persones suggerides",

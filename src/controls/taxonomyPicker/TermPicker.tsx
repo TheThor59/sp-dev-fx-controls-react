@@ -188,7 +188,7 @@ export default class TermPicker extends React.Component<ITermPickerProps, ITermP
         const termSet = await this.termsService.getTermSet();
         filteredTerms.push({
           key: EmptyGuid,
-          name: "Add",
+          name: strings.TaxonomyPickerAddTerm,
           path: "",
           termSet: EmptyGuid,
           termSetName: "Termset"

@@ -46,6 +46,7 @@ define([], () => {
     "TaxonomyPickerInLabel": "in",
     "TaxonomyPickerTermSetLabel": "Term Set",
     "TaxonomyPickerTermsNotFound": "The next selected term(s) could not be found in the term store: {0}",
+    "TaxonomyPickerAddTerm": "Add",
 
     peoplePickerComponentTooltipMessage: "People Picker",
     peoplePickerComponentErrorMessage: "Required Field",

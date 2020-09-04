@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "术语集的菜单",
   "TaxonomyPickerInLabel": "在",
   "TaxonomyPickerTermSetLabel": "术语集",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "人员选取器",
   "peoplePickerComponentErrorMessage": "必填字段",
   "peoplePickerSuggestionsHeaderText": "建议人员",

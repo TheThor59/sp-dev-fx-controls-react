@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Μενού για σύνολο όρων",
   "TaxonomyPickerInLabel": "In",
   "TaxonomyPickerTermSetLabel": "Σύνολο όρων",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Ατόμων",
   "peoplePickerComponentErrorMessage": "Απαιτούμενο πεδίο",
   "peoplePickerSuggestionsHeaderText": "Προτεινόμενους ανθρώπους",

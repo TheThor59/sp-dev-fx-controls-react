@@ -41,6 +41,7 @@ define([], () => {
   "TaxonomyPickerMenuTermSet": "Terminų rinkinio meniu",
   "TaxonomyPickerInLabel": "",
   "TaxonomyPickerTermSetLabel": "Terminų rinkinys",
+  "TaxonomyPickerAddTerm": "Add",
   "peoplePickerComponentTooltipMessage": "Pasirinkite naudotojus",
   "peoplePickerComponentErrorMessage": "Privalomas laukas",
   "peoplePickerSuggestionsHeaderText": "Pasiūlymai",

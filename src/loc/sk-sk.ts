@@ -41,6 +41,7 @@ define([], () => {
     "TaxonomyPickerMenuTermSet": "Menu pre množinu výrazov",
     "TaxonomyPickerInLabel": "Palcov",
     "TaxonomyPickerTermSetLabel": "Množina výrazov",
+    "TaxonomyPickerAddTerm": "Add",
     "peoplePickerComponentTooltipMessage": "Výber ľudí",
     "peoplePickerComponentErrorMessage": "Povinné pole",
     "peoplePickerSuggestionsHeaderText": "Navrhovaných ľudí",
