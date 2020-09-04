@@ -25,6 +25,7 @@ export default class SPTermStorePickerService {
   private formDigest: string;
   private clientServiceUrl: string;
   private suggestionServiceUrl: string;
+  private addServiceUrl: string;
 
   /**
    * Service constructor
@@ -33,7 +34,8 @@ export default class SPTermStorePickerService {
     if (Environment.type !== EnvironmentType.Local) {
       {
         this.clientServiceUrl = this.context.pageContext.web.absoluteUrl + '/_vti_bin/client.svc/ProcessQuery';
-        this.suggestionServiceUrl = this.context.pageContext.web.absoluteUrl + 	"/_vti_bin/TaxonomyInternalService.json/GetSuggestions";
+        this.suggestionServiceUrl = this.context.pageContext.site.absoluteUrl + 	"/_vti_bin/TaxonomyInternalService.json/GetSuggestions";
+        this.addServiceUrl = this.context.pageContext.site.absoluteUrl + "/_vti_bin/taxonomyinternalservice.json/CreateTaxonomyItem";
       }
     }
   }
@@ -373,6 +375,67 @@ export default class SPTermStorePickerService {
     return returnTerms;
   }
 
+  public addTerm(termLabel: string, termsetId: string): Promise<IPickerTerm> {
+    if (Environment.type === EnvironmentType.Local) {
+      // If the running environment is local, load the data from the mock
+      return SPTermStoreMockHttpClient.addTerm(termLabel);
+    } else {
+      return new Promise<IPickerTerm>(resolve => {
+        this.getTermStores().then(termStore => {
+          let TermSetId = termsetId;
+          if (!this.isGuid(TermSetId)) {
+            // Get the ID of the provided term set name
+            const crntTermSet = this.getTermSetId(termStore, TermSetId);
+            if (crntTermSet) {
+              TermSetId = this.cleanGuid(crntTermSet.Id);
+            } else {
+              resolve(null);
+              return;
+            }
+          }
+          if (termStore === undefined || termStore.length  === 0) {
+            resolve(null);
+            return;
+          }
+
+          const data = {
+            lcid: 1036,
+            listId: "00000000-0000-0000-0000-000000000000",
+            newName: termLabel,
+            parentId: TermSetId,
+            parentType: 3,
+            sspId: this.cleanGuid(termStore[0].Id),
+            termsetId: TermSetId,
+            webId: "00000000-0000-0000-0000-000000000000"
+          };
+
+          const reqHeaders = new Headers();
+          reqHeaders.append("accept", "application/json");
+          reqHeaders.append("content-type", "application/json");
+
+          const httpPostOptions: ISPHttpClientOptions = {
+            headers: reqHeaders,
+            body: JSON.stringify(data)
+          };
+          return this.context.spHttpClient.post(this.addServiceUrl, SPHttpClient.configurations.v1, httpPostOptions).then((serviceResponse: SPHttpClientResponse) => {
+            return serviceResponse.json().then((serviceJSONResponse: any) => {
+              const createdId = serviceJSONResponse.d.Content.Id;
+              const label = serviceJSONResponse.d.Content.Nm;
+              resolve({
+                key: createdId,
+                name: label,
+                path: label,
+                termSet: TermSetId,
+                termSetName: ""
+              });
+            });
+          });
+
+        });
+      });
+    }
+  }
+
   /**
      * Searches terms for the given term set
      * @param searchText
@@ -415,7 +478,7 @@ export default class SPTermStorePickerService {
             isIncludePathData: false, 
             excludeKeyword: false,
             excludedTermset: EmptyGuid
-          }
+          };
 
           const reqHeaders = new Headers();
           reqHeaders.append("accept", "application/json");
@@ -429,7 +492,7 @@ export default class SPTermStorePickerService {
 
           return this.context.spHttpClient.post(this.suggestionServiceUrl, SPHttpClient.configurations.v1, httpPostOptions).then((serviceResponse: SPHttpClientResponse) => {
             return serviceResponse.json().then((serviceJSONResponse: any) => {
-              const groups = serviceJSONResponse.d.Groups
+              const groups = serviceJSONResponse.d.Groups;
               if (groups && groups.length > 0) {
                 // Retrieve the term collection results
                 const terms: ISuggestTerm[] = groups[0].Suggestions;

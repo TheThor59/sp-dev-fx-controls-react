@@ -420,7 +420,8 @@ export class TaxonomyPicker extends React.Component<ITaxonomyPickerProps, ITaxon
               allowMultipleSelections={allowMultipleSelections}
               disabledTermIds={disabledTermIds}
               disableChildrenOfDisabledParents={disableChildrenOfDisabledParents}
-              placeholder={placeholder} />
+              placeholder={placeholder} 
+              isOpened={this.props.isOpened} />
           </div>
           <div className={styles.termFieldButton}>
             <IconButton disabled={disabled} iconProps={{ iconName: 'Tag' }} onClick={this.onOpenPanel} />

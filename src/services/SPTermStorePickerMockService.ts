@@ -212,6 +212,17 @@ export default class SPTermStoreMockHttpClient {
       resolve(SPTermStoreMockHttpClient._mockTermCollection);
     });
   }
+  public static addTerm(termLabel: string): Promise<IPickerTerm> {
+    return new Promise<IPickerTerm>((resolve) => {
+      resolve({
+        key: "098aa191-fe8f-4e98-8abe-ca08b5e5d336",
+        name: termLabel,
+        path: termLabel,
+        termSet: "635b5bca-8c5f-4831-8bf8-a0d9d5eb75e0",
+        termSetName: "Countries"
+      });
+    });
+  }
 
   public static searchTermsByName(searchText: string): Promise<IPickerTerm[]> {
     return new Promise<IPickerTerm[]>((resolve) => {

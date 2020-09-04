@@ -115,6 +115,11 @@ export interface ITaxonomyPickerProps  {
    * Note that error message should be specified in onGetErrorMessage
    */
   required?: boolean;
+
+  /**
+   * Specifies if the term set should be used as opened
+   */
+  isOpened?: boolean;
 }
 
 /**

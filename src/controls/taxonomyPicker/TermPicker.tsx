@@ -10,6 +10,7 @@ import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import { ExtensionContext } from '@microsoft/sp-extension-base';
 import { ITermSet } from "../../services/ISPTermStorePickerService";
 import { EmptyGuid } from '../../Common';
+import { templateSettings } from 'lodash';
 
 export class TermBasePicker extends BasePicker<IPickerTerm, IBasePickerProps<IPickerTerm>>
 {
@@ -18,6 +19,7 @@ export class TermBasePicker extends BasePicker<IPickerTerm, IBasePickerProps<IPi
 
 export interface ITermPickerState {
   terms: IPickerTerms;
+  filterText: string;
 }
 
 export interface ITermPickerProps {
@@ -30,6 +32,7 @@ export interface ITermPickerProps {
   disabledTermIds?: string[];
   disableChildrenOfDisabledParents?: boolean;
   placeholder?: string;
+  isOpened?: boolean;
 
   onChanged: (items: IPickerTerm[]) => void;
 }
@@ -46,9 +49,11 @@ export default class TermPicker extends React.Component<ITermPickerProps, ITermP
     this.onRenderSuggestionsItem = this.onRenderSuggestionsItem.bind(this);
     this.onFilterChanged = this.onFilterChanged.bind(this);
     this.onGetTextFromItem = this.onGetTextFromItem.bind(this);
+    this.onChanged = this.onChanged.bind(this);
 
     this.state = {
-      terms: this.props.value
+      terms: this.props.value,
+      filterText: ""
     };
     this.termsService = new SPTermStorePickerService(this.props.termPickerHostProps, this.props.context);
   }
@@ -111,6 +116,7 @@ export default class TermPicker extends React.Component<ITermPickerProps, ITermP
    * When Filter Changes a new search for suggestions
    */
   private async onFilterChanged(filterText: string, tagList: IPickerTerm[]): Promise<IPickerTerm[]> {
+    this.setState({ filterText: filterText });
     if (filterText !== "") {
       const {
         termPickerHostProps,
@@ -177,10 +183,53 @@ export default class TermPicker extends React.Component<ITermPickerProps, ITermP
           }
         }
       }
+      if (this.props.isOpened) {
+        // if the termset is opened, we can add an item :
+        const termSet = await this.termsService.getTermSet();
+        filteredTerms.push({
+          key: EmptyGuid,
+          name: "Add",
+          path: "",
+          termSet: EmptyGuid,
+          termSetName: "Termset"
+        });
+      }
       return filteredTerms;
     } else {
       return Promise.resolve([]);
     }
+  }
+
+  /**
+   * Handle on changed event and add term is needed
+   */
+  private onChanged(items: IPickerTerms): void {
+    // Closed termsets cannot add items
+    if (!this.props.isOpened){
+      this.props.onChanged(items);
+      return;
+    }
+
+    // Opened termsets can add new items, checking is it has been selected
+    const matches = items.filter((term: IPickerTerm) => term.key === EmptyGuid);
+    if (matches.length === 0) {
+      // No add matches
+      this.props.onChanged(items);
+      return;
+    }
+
+    // Here we need to add the item
+    this.termsService.addTerm(this.state.filterText, this.props.termPickerHostProps.termsetNameOrID).then((createdTerm) => {
+      const correctedItems: IPickerTerms =  [];
+      for (let term of items) {
+        if (term.key === EmptyGuid){
+          correctedItems.push(createdTerm);
+        } else {
+          correctedItems.push(term);
+        }
+      }
+      this.props.onChanged(correctedItems);
+    });
   }
 
 
@@ -198,7 +247,6 @@ export default class TermPicker extends React.Component<ITermPickerProps, ITermP
     const {
       disabled,
       value,
-      onChanged,
       allowMultipleSelections,
       placeholder
     } = this.props;
@@ -217,7 +265,7 @@ export default class TermPicker extends React.Component<ITermPickerProps, ITermP
           onRenderItem={this.onRenderItem}
           defaultSelectedItems={value}
           selectedItems={terms}
-          onChange={onChanged}
+          onChange={this.onChanged}
           itemLimit={!allowMultipleSelections ? 1 : undefined}
           className={styles.termBasePicker}
           inputProps={{
